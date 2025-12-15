@@ -103,7 +103,6 @@ El proyecto incluye un documento final con los siguientes apartados:
 * **PHP**
 * **MySQL**
 * **HTML5 / CSS3**
-* **JavaScript**
 * **GitHub**
 
 ---
@@ -121,10 +120,4 @@ El proyecto incluye un documento final con los siguientes apartados:
 
 ## Autores
 
-Proyecto desarrollado de forma colaborativa por los miembros del grupo para la UT5.
-
----
-
-## Licencia
-
-Este proyecto se ha desarrollado con fines educativos.
+Alejandro Sierra y Carlos Gómez de 2º DAW
