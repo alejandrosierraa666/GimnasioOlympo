@@ -1,5 +1,9 @@
 <?php
-include "./db/db.php";
+include "./../db/db.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "hola";
@@ -13,9 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "coinciden";
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         echo $hashedPassword;
-        $db->query("INSERT INTO users (username, password) VALUES ('$username', '$hashedPassword')");
+        $stmt = $db->prepare("INSERT INTO users (user, password) VALUES (?, ?)");
+        $stmt->execute([$username, $hashedPassword]);
+
 
         echo "Usuario registrado exitosamente.";
+        header('Location: ./login.php');
     } else {
         echo "Las contraseñas no coinciden.";
     }
