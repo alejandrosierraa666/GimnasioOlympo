@@ -1,11 +1,28 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if(isset($_POST['user']) && isset($_POST['password']) && !empty($_POST['user']) && !empty($_POST['password'])){
-            include('./../db/db.php');
+
+            //Controlamos el error en caso de que la base de datos no esté levantada
+            try{
+                include('./../db/db.php');
+            }catch(Exception $e){
+                echo "<p>Error: El servicio de la BD no está disponible actualmente!!</p>";
+                exit();
+            }
         
-            $stmt = $db->prepare("select password from users where user like ?");
-            $stmt->execute([$_POST['user']]);
-            $hashed = $stmt->fetch();
+            try{
+                $stmt = $db->prepare("select password from users where user like ?");
+                $stmt->execute([$_POST['user']]);
+                $hashed = $stmt->fetch();
+            }catch(Exception $e){
+                echo $e->getMessage();
+            }
+
+            //Hashed devuelve false si ese usuario no existe
+            if($hashed == false){
+                echo "Usuario o contraseña incorrecta!!";
+                exit();
+            }
 
 
             if(password_verify($_POST['password'], $hashed['password'])){

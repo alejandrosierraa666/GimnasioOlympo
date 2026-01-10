@@ -6,7 +6,6 @@ error_reporting(E_ALL);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "hola";
     $username = $_POST['user'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
