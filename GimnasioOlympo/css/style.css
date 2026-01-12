@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Barlow;
+    font-weight: normal;
+    src: url("./../assets/fonts/Barlow-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Barlow;
+    font-weight: bold;
+    src: url("./../assets/fonts/Barlow-Bold.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    font-family: Barlow, Arial, Helvetica, sans-serif;
+}
