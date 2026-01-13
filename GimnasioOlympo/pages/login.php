@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         try {
-            $stmt = $db->prepare("select password from users where user like ?");
+            $stmt = $db->prepare("select password, role from users where user like ?");
             $stmt->execute([$_POST['user']]);
             $hashed = $stmt->fetch();
         } catch (Exception $e) {
@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($_POST['password'], $hashed['password'])) {
             session_start();
             $_SESSION['user'] = $_POST['user'];
+            $_SESSION['role'] = $hashed['role'];
+
             header('Location: ../index.php');
             exit();
         } else {
