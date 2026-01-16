@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user'] = $_POST['user'];
             $_SESSION['role'] = $hashed['role'];
 
+            setcookie('lastConnection', date("Y-m-d H:i:s"), time() + 24 * 60 * 365, '/');
             header('Location: ../index.php');
             exit();
         } else {
