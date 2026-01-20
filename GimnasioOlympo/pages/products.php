@@ -32,18 +32,6 @@ include('./utils/checkSession.php');
             }
             ?>
         </section>
-
-        <script>
-            const products = document.getElementById('products')
-
-            products.addEventListener('click', (e) => {
-                if (e.target.tagName == 'BUTTON') addToCart()
-            })
-
-            function addToCart() {
-
-            }
-        </script>
     </main>
 </body>
 
