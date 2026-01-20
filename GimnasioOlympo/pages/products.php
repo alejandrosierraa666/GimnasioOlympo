@@ -8,11 +8,12 @@ include('../utils/checkSession.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <main>
-        <section id="products">
+        <section id="products" class="products">
             <?php
             include('./../db/db.php');
             $stmt = $db->prepare('select * from products');
@@ -20,7 +21,8 @@ include('../utils/checkSession.php');
             $result = $stmt->fetchAll();
 
             foreach ($result as $item) {
-                echo "<article>";
+                echo "<article class='product'>";
+                echo "<img class='product__img' src='./../assets/images/products/" . $item['image_url'] . "' alt=''>";
                 echo "<p>" . $item['name'] . "</p>";
                 echo "<p>" . $item['description'] . "</p>";
                 echo "<p>" . $item['price'] . " €</p>";

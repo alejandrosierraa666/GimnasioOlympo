@@ -5,8 +5,8 @@
 :root {
     --color-primary: #2ecc71;
     --color-primary-dark: #27ae60;
-    --color-bg: #f4f4f4;         
-    --color-text: #1a1a1a;      
+    --color-bg: #f4f4f4;
+    --color-text: #1a1a1a;
     --color-white: #ffffff;
 }
 
@@ -25,4 +25,30 @@
 body {
     margin: 0;
     font-family: Barlow, Arial, Helvetica, sans-serif;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--color-bg);
+}
+
+
+.product {
+    background-color: var(--color-white);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 220px;
+}
+
+.product__img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
