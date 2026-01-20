@@ -48,23 +48,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/login.css">
 </head>
 
 <body>
-    <main class="container">
-        <h1>Inicia Sesión</h1>
+   <main class="login">
+        <section class="login__container">
+            <h1 class="login__title">Inicia Sesión</h1>
 
-        <section class="form__container">
-            <form action="" method="POST">
-                <label for="">Nombre de Usuario</label>
-                <input type="text" name="user">
+            <section class="login__form-wrapper">
+                <form class="form" action="" method="POST">
+                    <div class="form__group">
+                        <label class="form__label" for="user">Nombre de Usuario</label>
+                        <input class="form__input" type="text" name="user" id="user">
+                    </div>
 
-                <label for="">Contraseña</label>
-                <input type="password" name="password">
+                    <div class="form__group">
+                        <label class="form__label" for="password">Contraseña</label>
+                        <input class="form__input" type="password" name="password" id="password">
+                    </div>
 
-                <input type="submit" value="Iniciar Sesión">
-            </form>
-            <a href="./register.php">¿Aún no estás registrado? Regístrate ahora!</a>
+                    <input class="form__submit" type="submit" value="Iniciar Sesión">
+                </form>
+                <a class="login__link" href="./register.php">¿Aún no estás registrado? Regístrate ahora!</a>
+            </section>
         </section>
     </main>
 </body>

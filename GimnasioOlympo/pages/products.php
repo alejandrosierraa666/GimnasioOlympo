@@ -1,5 +1,5 @@
 <?php
-include('./utils/checkSession.php');
+include('../utils/checkSession.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
