@@ -14,7 +14,19 @@ include('./utils/checkSession.php');
 </head>
 
 <body>
-    <h1>index</h1>
+    <header>
+        <main class="header__container">
+            <img src="././assets/images/logo.jpg" alt="">
+            <nav>
+                <ul>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </nav>
+        </main>
+    </header>
 </body>
 
 </html>
