@@ -38,18 +38,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user']) && isset($_POS
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/login.css">
 </head>
 
 <body>
-    <form action="" method="POST">
-        <input type="text" name="name" placeholder="Introduce tu nombre" required>
-        <input type="text" name="lastname" placeholder="Introduce tus apellidos" required>
-        <input type="text" name="user" placeholder="Nombre de usuario" required>
-        <input type="text" name="password" placeholder="Contraseña" required>
-        <input type="text" name="password2" placeholder="Repetir contraseña" required>
-        <button>Registrarse</button>
-        <a href="login.php">login</a>
-    </form>
+    <main class="login__container">
+        <h1 class="register__title">Regístrate!!</h1>
+
+        <form action="" method="POST" class="register__form">
+            <input class="form__input" type="text" name="name" placeholder="Introduce tu nombre" required>
+            <input class="form__input" type="text" name="lastname" placeholder="Introduce tus apellidos" required>
+            <input class="form__input" type="text" name="user" placeholder="Nombre de usuario deseado" required>
+            <input class="form__input" type="text" name="password" placeholder="Contraseña" required>
+            <input class="form__input" type="text" name="password2" placeholder="Repetir contraseña" required>
+            <button class="form__submit">Registrarse</button>
+            <article class="register__back">
+                <a href="login.php" class="login__access">¿Ya estas registrado?, Identifícate</a>
+            </article>
+        </form>
+    </main>
 </body>
 
 </html>

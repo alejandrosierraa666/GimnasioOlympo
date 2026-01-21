@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <section class="login__container">
             <h1 class="login__title">Inicia Sesión</h1>
 
-            <section class="login__form-wrapper">
+            <section class="login__form">
                 <form class="form" action="" method="POST">
                     <div class="form__group">
                         <label class="form__label" for="user">Nombre de Usuario</label>
