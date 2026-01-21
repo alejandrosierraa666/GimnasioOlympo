@@ -1,7 +1,6 @@
 <?php
 include('./../utils/checkSession.php');
 include('./../db/db.php');
-session_start();
 ?>
 
 <!DOCTYPE html>

@@ -17,9 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user']) && isset($_POS
     if ($password === $password2) {
         echo "coinciden";
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        echo $hashedPassword;
-        $stmt = $db->prepare("INSERT INTO users (user, password, name, last_name) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$username, $hashedPassword, $name, $lastName]);
+        $stmt = $db->prepare("INSERT INTO users (user, password, expiration_date, name, last_name) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$username, $hashedPassword, date("d/m/y") , $name, $lastName]);
 
 
         echo "Usuario registrado exitosamente.";

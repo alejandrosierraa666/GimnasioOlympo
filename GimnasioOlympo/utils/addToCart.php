@@ -4,6 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     array_push($list, $_POST["id"]);
     setcookie('cart', json_encode($list), time() + 60 * 24 * 30, "/");
     
-    print_r($list);
     header('Location: ../pages/products.php');
+    exit();
 }
