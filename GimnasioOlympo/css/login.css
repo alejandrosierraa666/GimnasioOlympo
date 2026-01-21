@@ -15,11 +15,10 @@ body {
 
 .login__container {
     background-color: var(--color-white);
-    height: 100vh;
     padding: 40px;
     width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 255, 34, 0.342);
+    box-shadow: 0 4px 15px #feb600b0;
     text-align: center;
 }
 

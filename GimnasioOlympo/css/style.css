@@ -3,11 +3,12 @@
 }
 
 :root {
-    --color-primary: #2ecc71;
-    --color-primary-dark: #27ae60;
+    --color-primary: #feb800;
+    --color-primary-dark: #ffa101;
     --color-bg: #f4f4f4;
     --color-text: #1a1a1a;
     --color-white: #ffffff;
+    --active: ;
 }
 
 @font-face {
@@ -25,6 +26,42 @@
 body {
     margin: 0;
     font-family: Barlow, Arial, Helvetica, sans-serif;
+}
+
+.header{
+    background-color: var(--color-primary-dark);
+}
+
+.header__container{
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    width: 150px;
+    height: 100px;
+}
+
+.nav__list{
+    display: flex;
+    gap: 1rem;
+}
+
+.list__link{
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.active{
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.list__item{
+    list-style-type: none;
 }
 
 .products {
