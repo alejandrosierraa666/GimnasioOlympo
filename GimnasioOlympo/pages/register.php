@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user']) && isset($_POS
         echo "coinciden";
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $stmt = $db->prepare("INSERT INTO users (user, password, expiration_date, name, last_name) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$username, $hashedPassword, date("d/m/y") , $name, $lastName]);
+        $stmt->execute([$username, $hashedPassword, date("d/m/y"), $name, $lastName]);
 
 
         echo "Usuario registrado exitosamente.";
@@ -42,20 +42,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user']) && isset($_POS
 </head>
 
 <body>
-    <main class="login__container">
-        <h1 class="register__title">Regístrate!!</h1>
+    <main class="login">
+        <section class="login__container">
+            <h1 class="register__title">Regístrate!!</h1>
 
-        <form action="" method="POST" class="register__form">
-            <input class="form__input" type="text" name="name" placeholder="Introduce tu nombre" required>
-            <input class="form__input" type="text" name="lastname" placeholder="Introduce tus apellidos" required>
-            <input class="form__input" type="text" name="user" placeholder="Nombre de usuario deseado" required>
-            <input class="form__input" type="text" name="password" placeholder="Contraseña" required>
-            <input class="form__input" type="text" name="password2" placeholder="Repetir contraseña" required>
-            <button class="form__submit">Registrarse</button>
-            <article class="register__back">
-                <a href="login.php" class="login__access">¿Ya estas registrado?, Identifícate</a>
-            </article>
-        </form>
+            <form action="" method="POST" class="register__form">
+                <input class="form__input" type="text" name="name" placeholder="Introduce tu nombre" required>
+                <input class="form__input" type="text" name="lastname" placeholder="Introduce tus apellidos" required>
+                <input class="form__input" type="text" name="user" placeholder="Nombre de usuario deseado" required>
+                <input class="form__input" type="text" name="password" placeholder="Contraseña" required>
+                <input class="form__input" type="text" name="password2" placeholder="Repetir contraseña" required>
+                <button class="form__submit">Registrarse</button>
+                <article class="register__back">
+                    <a href="login.php" class="login__access">¿Ya estas registrado?, Identifícate</a>
+                </article>
+            </form>
+        </section>
     </main>
 </body>
 
