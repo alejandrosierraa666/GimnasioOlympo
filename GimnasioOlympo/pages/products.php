@@ -12,19 +12,7 @@ include('../utils/checkSession.php');
 </head>
 
 <body>
-    <header class="header">
-        <main class="header__container">
-            <img src="./../assets/images/logo.png" alt="" class="logo">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="list__item"><a class="list__link" href="./../index.php">Inicio</a></li>
-                    <li class="list__item"><a class="list__link active" href="">Productos</a></li>
-                    <li class="list__item"><a class="list__link" href="">Mi Perfil</a></li>
-                    <li class="list__item"><a class="list__link" href="">Sobre Nosotros</a></li>
-                </ul>
-            </nav>
-        </main>
-    </header>
+    <?= include('./../includes/header.php') ?>
     <main class="main">
         <section id="products" class="products">
             <?php
