@@ -12,7 +12,7 @@ include('../utils/checkSession.php');
 </head>
 
 <body>
-    <?= include('./../includes/header.php') ?>
+    <?php include('./../includes/header.php') ?>
     <main class="main">
         <section id="products" class="products">
             <?php
