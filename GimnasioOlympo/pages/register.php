@@ -12,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user']) && isset($_POS
     $lastName = $_POST['lastname'];
 
 
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $stmt = $db->prepare("INSERT INTO users (user, password, name, last_name) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$username, $hashedPassword, $name, $lastName]);
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $stmt = $db->prepare("INSERT INTO users (user, password, name, last_name) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$username, $hashedPassword, $name, $lastName]);
 
-        echo "Usuario registrado exitosamente.";
-        header('Location: ./login.php');
+    echo "Usuario registrado exitosamente.";
+    header('Location: ./login.php');
 }
 ?>
 
@@ -44,10 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user']) && isset($_POS
                 <input class="form__input" type="text" name="name" placeholder="Introduce tu nombre" required>
                 <input class="form__input" type="text" name="lastname" placeholder="Introduce tus apellidos" required>
                 <input class="form__input" type="text" name="user" placeholder="Nombre de usuario deseado" required>
-                <!-- <input class="form__input" type="password" name="password2" placeholder="Repetir contraseña" required> -->
-                <div id="eye" class="eye__container">
-                    <input class="form__input" type="password" name="password" id="password" placeholder="Contraseña" required>
-                    <i class="fa-solid fa-eye eye"></i>
+                <div class="eye__container">
+                    <input class="form__input form__input--password" type="password" name="password" id="password" placeholder="Contraseña" required>
+                    <i class="fa-solid fa-eye eye" id="eye"></i>
                 </div>
                 <button class="form__submit">Registrarse</button>
                 <article class="register__back">

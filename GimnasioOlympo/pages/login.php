@@ -67,9 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="form__group">
                         <label class="form__label" for="password">Contraseña</label>
-                        <div id="eye" class="eye__container">
-                            <input class="form__input" type="password" name="password" id="password" required>
-                            <i class="fa-solid fa-eye eye"></i>
+                        <div class="eye__container">
+                            <input class="form__input form__input--password" type="password" name="password" id="password" required>
+                            <i class="fa-solid fa-eye eye" id="eye"></i>
                         </div>
                     </div>
 

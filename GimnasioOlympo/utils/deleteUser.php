@@ -9,6 +9,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['user']) && $_SESSION['r
         echo "Error al eliminar el usuario: " . $e->getMessage();
         exit();
     }
-    header('Location: ./../pages/profile.php');
+    header('Location: ./../pages/panelAdmin.php');
     exit();
 }
