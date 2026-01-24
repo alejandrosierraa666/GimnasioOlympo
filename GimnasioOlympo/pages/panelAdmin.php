@@ -9,24 +9,20 @@ include('./../db/db.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../css/register.css">
-    <link rel="stylesheet" href="./../css/profile.css">
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/register.css">
+    <link rel="stylesheet" href="./../css/admin.css">
     <title>Profile</title>
 </head>
 
 <body>
     <?php
     include('./../includes/header.php');
-    echo "<div class='profile__data'>";
-    echo "<p>Hola, <span class='profile__user'>" . $_SESSION['user'] . "</span> bienvenido de nuevo</p>";
-    echo "<p>Última conexion --> " . $_COOKIE['lastConnection'] . "</p>";
-    echo "</div>";
     ?>
+    <main class="admin__container">
 
-    <?php if ($_SESSION['role'] == 'admin') { ?>
         <section>
-            <article class='profile__info'>
+            <article class='admin__info'>
                 <h1>Panel de Administración</h1>
                 <p>Bienvenido de nuevo, <span class="profile__user">administrador</span> | <?php echo $_COOKIE['lastConnection']; ?></p>
             </article>
@@ -59,58 +55,40 @@ include('./../db/db.php');
             </div>
 
             <div class="admin__panel">
-                <table>
-                    <h2>Gestión de Miembros</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Estado</th>
-                                <th>Vencimiento</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
+                <h2>Gestión de Miembros</h2>
+                <table class="admin__table">
+                    <thead class="table__head">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Estado</th>
+                            <th>Vencimiento</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
-                            <?php
-                            $stmt = $db->prepare('select * from users where role = "user"');
-                            $stmt->execute();
-                            $result = $stmt->fetchAll();
+                    <tbody>
+                        <?php
+                        $stmt = $db->prepare('select * from users where role = "user"');
+                        $stmt->execute();
+                        $result = $stmt->fetchAll();
 
-                            foreach ($result as $user) {
-                                echo "<tr>";
-                                echo "<td>" . $user['name'] . "</td>";
-                                echo "<td>" . $user['last_name'] . "</td>";
-                                echo "<td>" . ($user['estado'] ? 'Activo' : 'Inactivo') . "</td>";
-                                echo "<td>" . $user['expiration_date'] . "</td>";
-                                echo "<form action='./../utils/deleteUser.php?user=" . $user['user'] . "' method='POST'><button class='delete__button'>Borrar Usuario</button></form>";
-                                echo "</tr>";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                        foreach ($result as $user) {
+                            $user['estado'] ? $estado = 'activo' : $estado = 'inactivo';
+                            $user['expiration_date'] ? $expiration__class = 'date' : $expiration__class = 'no__date';
+
+                            echo "<tr>";
+                            echo "<td style=''>" . $user['name'] . "</td>";
+                            echo "<td style=''>" . $user['last_name'] . "</td>";
+                            echo "<td style='display:flex; height:100%; justify-content:center; align-items:center;'><div class='" . $estado . "'>" . $estado . "</div></td>";
+                            echo "<td class='" . $expiration__class . "'>" . ($user['expiration_date'] ? $user['expiration_date'] : 'Sin subscripción') . "</td>";
+                            echo "<td><form action='./../utils/deleteUser.php?user=" . $user['user'] . "' method='POST'><button class='delete__button'>Borrar Usuario</button></form></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
-
-            <!-- <section class="admin__options">
-                <article class="option">
-                    <h2>Gestión de Usuarios</h2>
-                    <p>Accede a la información de los usuarios registrados.</p>
-                    <button id="btn-users" class="admin__button">Ver Usuarios</button>
-                </article>
-
-                <article class="option">
-                    <h2>Gestión de Productos</h2>
-                    <p>Añade, edita o elimina productos del catálogo.</p>
-                    <button class="admin__button">Gestionar Productos</button>
-                </article>
-            </section> -->
-            <article class="option">
-                <h2>Agregar Nuevo Usuario</h2>
-                <p>Crea una nueva cuenta de usuario para el gimnasio.</p>
-                <button class="admin__button--add" id="addUser">Añadir un nuevo usuario</button>
-            </article>
-
 
             <section id="users" style="display: none; padding-bottom:40px; flex-direction:column; align-items:center; margin:50px auto; gap:1rem; box-shadow: 0 0 10px rgba(0, 0, 0, 0.35); padding-top:10px; width:80%; border-radius:10px;">
                 <h2>Usuarios Registrados</h2>
@@ -126,7 +104,7 @@ include('./../db/db.php');
 
                             !empty($user['profile_picture']) && !isset($user['profile_picture']) ? $route = $user['profile_picture'] : $route = './../assets/images/default_picture.webp';
 
-                            echo "<article style='border:1px solid #ff6600; padding:10px; display:flex; flex-direction:column; align-items:center; width:400px; border-radius:10px;'>";
+                            echo "<article style='padding:10px; display:flex; flex-direction:column; align-items:center; width:400px; border-radius:10px;'>";
                             echo "<img src='" . $route . "' style='width:50%; height:200px; border-radius:50%;'>";
                             echo "<p>Nombre de Usuario: " . $user['user'] . "</p>";
                             echo "<p>Nombre: " . $user['name'] . "</p>";
@@ -146,7 +124,7 @@ include('./../db/db.php');
 
             </section>
 
-            <section id="addUserCapa" style="display: none; padding-bottom:40px; flex-direction:column; align-items:center; margin:50px auto; gap:1rem; box-shadow: 0 0 10px rgba(0, 0, 0, 0.35); padding:20px; width:50%; border-radius:10px;">
+            <section id="addUserCapa" style="display: flex; padding-bottom:40px; flex-direction:column; align-items:center; margin:50px auto; gap:1rem; box-shadow: 0 0 10px rgba(0, 0, 0, 0.35); padding:20px; width:50%; border-radius:10px;">
                 <form action="./../utils/addUser.php" method="POST" class="register__form">
                     <h2>Añadir Nuevo Usuario</h2>
                     <label for="user">Nombre de Usuario:</label>
@@ -168,7 +146,7 @@ include('./../db/db.php');
                 </form>
             </section>
         </section>
-    <?php } ?>
+    </main>
 </body>
 
 </html>
