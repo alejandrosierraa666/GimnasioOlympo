@@ -24,27 +24,68 @@ include('./../db/db.php');
         <div style="border:1px solid red">
             <p>Esta capa solo la van a poder ver los admins</p>
 
-            <?php
-            try {
-                $stmt = $db->prepare('select * from users');
-                $stmt->execute();
-                $result = $stmt->fetchAll();
+            <section>
+                <article>
+                    <h2>Gestión de Usuarios</h2>
+                    <p>Accede a la información de los usuarios registrados.</p>
+                    <button id="btn-users">Ver Usuarios</button>
+                </article>
 
-                foreach ($result as $user) {
-                    !empty($user['profile_picture']) && !isset($user['profile_picture']) ? $route = $user['profile_picture'] : $route = './../assets/default_picture.webp';
+                <article>
+                    <h2>Gestión de Productos</h2>
+                    <p>Añade, edita o elimina productos del catálogo.</p>
+                    <button>Gestionar Productos</button>
+                </article>
+            </section>
 
-                    echo "<article>";
-                    echo "<img src='" . $route . "'>";
-                    echo "<p>Nombre: " . $user['name'] . "</p>";
-                    echo "<p>Apellidos: " . $user['last_name'] . "</p>";
-                    echo "<p>Suscrito hasta: " . $user['expiration_date'] . "</p>";
+
+            <section style="display: none; margin-top:20px;" id="users">
+                <?php
+                try {
+                    $stmt = $db->prepare('select * from users');
+                    $stmt->execute();
+                    $result = $stmt->fetchAll();
+
+                    foreach ($result as $user) {
+                        if ($user['role'] == 'admin') continue;
+
+                        !empty($user['profile_picture']) && !isset($user['profile_picture']) ? $route = $user['profile_picture'] : $route = './../assets/images/default_picture.webp';
+
+                        echo "<article style='border:1px solid black; margin:10px; padding:10px; display:flex; flex-direction:column; align-items:center; width:500px;'>";
+                        echo "<img src='" . $route . "' style='width:100%; height:400px; border-radius:50%;'>";
+                        echo "<p>Nombre de Usuario: " . $user['user'] . "</p>";
+                        echo "<p>Nombre: " . $user['name'] . "</p>";
+                        echo "<p>Apellidos: " . $user['last_name'] . "</p>";
+                        echo "<p>Suscrito hasta: " . $user['expiration_date'] . "</p>";
+                        echo "</article>";
+                    }
+                } catch (Exception $e) {
+                    echo $e->getMessage();
                 }
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-            ?>
+                ?>
+
+                <button>Borrar a un usuario</button>
+                <button>Añadir un nuevo usuario</button>
+                <button>Renovar el bono</button>
+            </section>
+
         </div>
     <?php endif; ?>
 </body>
 
 </html>
+
+<script>
+    let btnUsers = document.getElementById('btn-users');
+    let users = document.getElementById('users');
+
+    btnUsers.addEventListener('click', () => {
+        if (users.style.display === 'none') {
+            users.style.display = 'grid';
+            btnUsers.textContent = 'Ocultar Usuarios';
+        } else {
+            users.style.display = 'none';
+            btnUsers.textContent = 'Ver Usuarios';
+        }
+    });
+</script>
