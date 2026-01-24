@@ -4,6 +4,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #ffa201cb;
+    padding: 0 20px;
+    border-radius: 10px;
 }
 
 .profile__data{
@@ -14,4 +17,56 @@
 .profile__user{
     font-weight: bold;
     color: #ff6600;
+}
+
+.delete__button{
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.renew__button{
+    background-color: rgb(0, 102, 255);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin__options{
+    display: flex;
+    justify-content: space-around;
+}
+
+.option{
+    border: 1px solid #ff6600;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.admin__button{
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.admin__button--add{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
