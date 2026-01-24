@@ -10,17 +10,23 @@ include('./../db/db.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/profile.css">
     <title>Profile</title>
 </head>
 
 <body>
     <?php
     include('./../includes/header.php');
-    echo "<p>Hola, " . $_SESSION['user'] . " bienvenido de nuevo</p>";
+    echo "<article class='profile__info'>";
+    echo "<h1>Perfil de Usuario</h1>";
+    echo "<div class='profile__data'>";
+    echo "<p>Hola, <span class='profile__user'>" . $_SESSION['user'] . "</span> bienvenido de nuevo</p>";
     echo "<p>Última conexion --> " . $_COOKIE['lastConnection'] . "</p>";
+    echo "</div>";
+    echo "</article>";
     ?>
 
-    <?php if ($_SESSION['role'] == 'admin'): ?>
+    <?php if ($_SESSION['role'] == 'admin'){ ?>
         <div style="border:1px solid red">
             <p>Esta capa solo la van a poder ver los admins</p>
 
@@ -71,7 +77,7 @@ include('./../db/db.php');
             </section>
 
         </div>
-    <?php endif; ?>
+    <?php }?>
 </body>
 
 </html>

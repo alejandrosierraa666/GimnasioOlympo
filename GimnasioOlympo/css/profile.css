@@ -1,0 +1,17 @@
+.profile__info{
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile__data{
+    display: flex;
+    gap: 1rem;
+}
+
+.profile__user{
+    font-weight: bold;
+    color: #ff6600;
+}
