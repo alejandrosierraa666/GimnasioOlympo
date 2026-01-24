@@ -1,4 +1,4 @@
-.profile__info{
+.profile__info {
     width: 80%;
     margin: 20px auto;
     display: flex;
@@ -9,17 +9,16 @@
     border-radius: 10px;
 }
 
-.profile__data{
+.profile__data {
     display: flex;
     gap: 1rem;
 }
 
-.profile__user{
+.profile__user {
     font-weight: bold;
-    color: #ff6600;
 }
 
-.delete__button{
+.delete__button {
     background-color: #ff0000;
     color: white;
     border: none;
@@ -29,7 +28,7 @@
     margin-bottom: 10px;
 }
 
-.renew__button{
+.renew__button {
     background-color: rgb(0, 102, 255);
     color: white;
     border: none;
@@ -38,12 +37,12 @@
     cursor: pointer;
 }
 
-.admin__options{
+.admin__options {
     display: flex;
     justify-content: space-around;
 }
 
-.option{
+.option {
     border: 1px solid #ff6600;
     padding: 20px;
     border-radius: 10px;
@@ -51,7 +50,7 @@
     text-align: center;
 }
 
-.admin__button{
+.admin__button {
     background-color: #ff6600;
     color: white;
     border: none;
@@ -61,7 +60,7 @@
     margin-top: 10px;
 }
 
-.admin__button--add{
+.admin__button--add {
     background-color: #28a745;
     color: white;
     border: none;
@@ -69,4 +68,38 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.stats {
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+}
+
+.stat__title {
+    color: #888;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.stat .numero {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-primary);
 }
