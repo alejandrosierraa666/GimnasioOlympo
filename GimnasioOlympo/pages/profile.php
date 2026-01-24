@@ -57,6 +57,8 @@ include('./../db/db.php');
                         echo "<p>Nombre: " . $user['name'] . "</p>";
                         echo "<p>Apellidos: " . $user['last_name'] . "</p>";
                         echo "<p>Suscrito hasta: " . $user['expiration_date'] . "</p>";
+                        echo "<button>Borrar Usuario</button>";
+                        echo "<button>Renovar el bono</button>";
                         echo "</article>";
                     }
                 } catch (Exception $e) {
@@ -64,9 +66,8 @@ include('./../db/db.php');
                 }
                 ?>
 
-                <button>Borrar a un usuario</button>
+                
                 <button>Añadir un nuevo usuario</button>
-                <button>Renovar el bono</button>
             </section>
 
         </div>
