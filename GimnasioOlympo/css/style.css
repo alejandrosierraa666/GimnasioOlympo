@@ -52,6 +52,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     right: 0px;
     top: 60px;
+    z-index: 10;
 }
 
 .cartitems {
@@ -116,6 +117,7 @@ body {
 }
 
 .main {
+    padding-top: 18px;
     background-color: var(--color-bg);
 }
 

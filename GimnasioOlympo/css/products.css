@@ -1,4 +1,4 @@
-.banner{
+.banner {
     width: 70%;
     margin: 30px auto;
     background-color: #ffa201cb;
@@ -13,18 +13,19 @@
     position: relative;
 }
 
-.product__icon{
+.product__icon {
     position: absolute;
-    top: -20px;
+    top: -10px;
     right: -10px;
     border: 1px solid red;
     background-color: red;
     color: white;
     border-radius: 50%;
     display: flex;
-    height: 40px;
-    width: 40px;
+    height: 24px;
+    width: 24px;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    font-size: .8rem;
 }
