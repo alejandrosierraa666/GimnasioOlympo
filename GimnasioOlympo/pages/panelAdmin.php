@@ -43,7 +43,7 @@ include('./../db/db.php');
                     <h3 class="stat__title">Bonos Activos</h3>
                     <article class="numero">
                         <?php
-                        $stmt = $db->prepare('select count(*) as total from users where estado = 1 and role = "user"');
+                        $stmt = $db->prepare('select count(*) as total from users where expiration_date > date(now()) and role = "user"');
                         $stmt->execute();
                         $result = $stmt->fetch();
 
