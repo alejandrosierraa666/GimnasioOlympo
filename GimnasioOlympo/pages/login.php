@@ -49,10 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login</title>
     <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script src="./../js/register.js" defer></script>
 </head>
 
 <body>
-   <main class="login">
+    <main class="login">
         <section class="login__container">
             <h1 class="login__title">Inicia Sesión</h1>
 
@@ -65,7 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="form__group">
                         <label class="form__label" for="password">Contraseña</label>
-                        <input class="form__input" type="password" name="password" id="password">
+                        <div class="eye__container">
+                            <input class="form__input form__input--password" type="password" name="password" id="password" required>
+                            <i class="fa-solid fa-eye eye" id="eye"></i>
+                        </div>
                     </div>
 
                     <input class="form__submit" type="submit" value="Iniciar Sesión">

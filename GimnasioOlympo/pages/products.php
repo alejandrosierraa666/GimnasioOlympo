@@ -10,12 +10,22 @@ include('./../db/db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
 <body>
     <?php include('./../includes/header.php') ?>
     <main class="main">
+        <article class="banner">
+            <p>Compra nuestra gama de batidos de alto contenido en proteínas, proteínas en polvo y mezclas para obtener suplementos proteicos de alta calidad que favorezcan el crecimiento y el mantenimiento de tus músculos.</p>
+            <div class="product__icon">
+                <i class="fa-solid fa-exclamation"></i>
+            </div>
+        </article>
+
         <section id="products" class="products">
+
             <?php
             $stmt = $db->prepare('select * from products');
             $stmt->execute();
