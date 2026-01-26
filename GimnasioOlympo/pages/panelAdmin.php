@@ -74,8 +74,13 @@ include('./../db/db.php');
                             $result = $stmt->fetchAll();
 
                             foreach ($result as $user) {
-                                $user['estado'] ? $estado = 'activo' : $estado = 'inactivo';
-                                $user['expiration_date'] ? $expiration__class = 'date' : $expiration__class = 'no__date';
+                                if (!$user['expiration_date'] || strtotime($user['expiration_date']) < time()) {
+                                    $estado = 'inactivo';
+                                    $expiration__class = 'no__date';
+                                } else {
+                                    $estado = 'activo';
+                                    $expiration__class = 'date';
+                                }
 
                                 echo "<tr>";
                                 echo "<td style=''>" . $user['name'] . "</td>";
