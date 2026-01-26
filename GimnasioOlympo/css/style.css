@@ -53,6 +53,7 @@ body {
     right: 0px;
     top: 60px;
     z-index: 10;
+    transform: translateX(-50%);
 }
 
 .cartitems {

@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     !isset($_COOKIE['cart']) ? $cart = [] : $cart = json_decode($_COOKIE['cart'], true);
 
@@ -21,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     }
 
     setcookie("cart", json_encode($cart), time() + 60 * 24 * 30, "/");
+
+    file_put_contents("./../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " added product $productId to cart\n", FILE_APPEND);
+
 
     header("Location: ../pages/products.php");
     exit();

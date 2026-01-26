@@ -49,9 +49,15 @@ if (isset($_COOKIE["cart"])) {
                             }
                             ?>
                         </div>
-                        <div class="cart__btncontainer">
+                        <?php
+                        if (count($cart) == 0) {
+                            echo "<p class='cart__empty'>El carrito está vacío</p>";
+                        } else {
+                            echo '<div class="cart__btncontainer">
                             <button class="cart__btn">Comprar</button>
-                        </div>
+                        </div>';
+                        }
+                        ?>
                     </div>
                 </li>
             </ul>
