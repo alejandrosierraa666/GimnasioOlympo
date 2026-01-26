@@ -1,5 +1,6 @@
 <?php
 include('./utils/checkSession.php');
+include("./db/db.php");
 ?>
 
 <!-- Publicidad del gimnasio -->

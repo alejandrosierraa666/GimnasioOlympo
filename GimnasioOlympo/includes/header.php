@@ -1,3 +1,12 @@
+<?php
+$cart = [];
+
+if (isset($_COOKIE["cart"])) {
+    $cart = json_decode($_COOKIE["cart"], true);
+}
+
+?>
+
 <header class="header">
     <main class="header__container">
         <img src="/GimnasioOlympo/GimnasioOlympo/assets/images/logo.png" alt="" class="logo">
@@ -22,6 +31,29 @@
                     echo "active"
                 ?>
                 " href="/GimnasioOlympo/GimnasioOlympo/pages/profile.php">Mi Perfil</a></li>
+                <li class="list__item list__item--cart"><img src="/GimnasioOlympo/GimnasioOlympo/assets/images/cart1.svg" class="cart__img">
+
+                    <div id="cart" class="cart">
+                        <div class="cartitems">
+                            <?php
+                            foreach ($cart as $item) {
+                                $stmt = $db->prepare('select * from products where id = ?');
+                                $stmt->execute([$item['id']]);
+                                $product = $stmt->fetch();
+
+                                echo "<div class='cartitem'>
+                            <img src='/GimnasioOlympo/GimnasioOlympo/assets/images/products/{$product['image_url']}' class='cartitem__img'>
+                            <p class='cartitem__name'>{$product['name']}</p>
+                            <p class='cartitem__quantity'>{$item['quantity']}</p>
+                          </div>";
+                            }
+                            ?>
+                        </div>
+                        <div class="cart__btncontainer">
+                            <button class="cart__btn">Comprar</button>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </nav>
     </main>

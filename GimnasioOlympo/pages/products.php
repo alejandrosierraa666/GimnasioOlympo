@@ -1,5 +1,6 @@
 <?php
 include('../utils/checkSession.php');
+include('./../db/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,6 @@ include('../utils/checkSession.php');
     <main class="main">
         <section id="products" class="products">
             <?php
-            include('./../db/db.php');
             $stmt = $db->prepare('select * from products');
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -35,7 +35,7 @@ include('../utils/checkSession.php');
                             <p><?= $item['description'] ?></p>
                         </div>
 
-                        <form class="product__form" method="POST" action="../utils/addToCart.php">
+                        <form class="product__form" method="POST" action="../utils/cart.php">
                             <p class="product__price"><?= $item['price'] ?> €</p>
                             <button class="product__btn"><img class="product__cart" src="../assets/images/cart.svg"></button>
                             <input type="hidden" name="id" value="<?= $item['id'] ?>">
