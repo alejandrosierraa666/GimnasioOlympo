@@ -105,17 +105,18 @@ CREATE TABLE `users` (
   `expiration_date` date DEFAULT NULL,
   `profile_picture` varchar(100) DEFAULT NULL,
   `name` varchar(30) NOT NULL,
-  `last_name` varchar(50) NOT NULL
+  `last_name` varchar(50) NOT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `user`, `password`, `role`, `expiration_date`, `profile_picture`, `name`, `last_name`) VALUES
-(1, 'admin', '$2y$10$WvlmlHlkwDtMRlwRaOwZ7uHWcg1Tv3evR.FO8CFsUc/ziaGj5BoSe', 'admin', '0000-00-00', '', '', ''),
-(3, 'ale', '$2y$10$UyBjAS5BMHvQN6nPeO1ym./GDy96vWPL4Hcpr/YC0TeMasdkA3CA6', 'user', '0000-00-00', '', '', ''),
-(4, 'elsenordelanoche', '$2y$10$hqT5UW.lXfnVGV0KrCWaueyx/WvB90xH.HJLPzMdwcHPA0ivrvjDW', 'user', NULL, NULL, 'javi', 'Sierra Lagartera');
+INSERT INTO `users` (`id`, `user`, `password`, `role`, `expiration_date`, `profile_picture`, `name`, `last_name`, `estado`) VALUES
+(1, 'admin', '$2y$10$WvlmlHlkwDtMRlwRaOwZ7uHWcg1Tv3evR.FO8CFsUc/ziaGj5BoSe', 'admin', '0000-00-00', '', '', '', 0),
+(3, 'ale', '$2y$10$UyBjAS5BMHvQN6nPeO1ym./GDy96vWPL4Hcpr/YC0TeMasdkA3CA6', 'user', '0000-00-00', '', '', '', 0),
+(4, 'elsenordelanoche', '$2y$10$hqT5UW.lXfnVGV0KrCWaueyx/WvB90xH.HJLPzMdwcHPA0ivrvjDW', 'user', NULL, NULL, 'javi', 'Sierra Lagartera', 1);
 
 --
 -- Índices para tablas volcadas

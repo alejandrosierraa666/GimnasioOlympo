@@ -102,12 +102,29 @@ include('./../db/db.php');
                             <input class="form__input" type="password" id="password" name="password" required placeholder="Contraseña">
 
                             <input class="form__input" type="date" name="expiration_date" required placeholder="Fecha de expiración">
-                            <button type="submit" class="admin__button--add">Crear Usuario</button>
+                            <button type="submit" class="admin__button admin__button--add">Crear Usuario</button>
                         </form>
                     </section>
 
-                    <section>
-                        <button id="addUser" class="admin__button--add">Añadir un nuevo usuario</button>
+                    <section class="aside__adduser">
+                        <h2>Renueva el bono de un usuario</h2>
+                        <form action="./../utils/renovateUser.php" method="POST" style="width:100%;">
+                            <select name="select" class="form__select">
+                                <option selected disabled>Selecciona un usuario</option>
+                                <?php
+                                $stmt = $db->prepare('select * from users where role = "user"');
+                                $stmt->execute();
+                                $result = $stmt->fetchAll();
+
+                                foreach ($result as $user) {
+                                    echo "<option value='" . $user['user'] . "'>" . $user['name'] . " " . $user['last_name'] . "</option>";
+                                }
+                                ?>
+                            </select>
+
+                            <input type="date" name="date" class="form__select">
+                            <input class="admin__button admin__button--renovate" type="submit" value="Renovar el bono">
+                        </form>
                     </section>
                 </aside>
             </div>

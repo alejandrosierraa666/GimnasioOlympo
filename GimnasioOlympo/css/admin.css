@@ -65,12 +65,11 @@
 
 .admin__button--add {
     background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+    width: 100%;
+}
+
+.admin__button--renovate {
+    background-color: rgb(0, 102, 255);
     width: 100%;
 }
 
@@ -144,6 +143,9 @@
 
 .admin__aside {
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .table__head {
@@ -211,4 +213,13 @@
 .form__input:focus {
     outline: none;
     border-color: green;
+}
+
+.form__select{
+    width: 100%;
+    padding: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
