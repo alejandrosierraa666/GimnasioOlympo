@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         try {
-            $stmt = $db->prepare("select password, role from users where user like ?");
+            $stmt = $db->prepare("select password, role, id from users where user like ?");
             $stmt->execute([$_POST['user']]);
             $hashed = $stmt->fetch();
         } catch (Exception $e) {
