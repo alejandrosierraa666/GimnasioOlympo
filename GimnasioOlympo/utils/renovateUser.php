@@ -1,6 +1,6 @@
 <?php
 include('./../utils/checkSession.php');
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select']) && $_SESSION['role'] === 'admin'){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select']) && $_SESSION['role'] === 'admin') {
     include('./../db/db.php');
     try {
         $stmt = $db->prepare('update users set expiration_date = ? where user = ?');
