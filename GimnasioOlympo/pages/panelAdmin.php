@@ -11,6 +11,7 @@ include('./../db/db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/admin.css">
+    <script src="./../js/renovateBond.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <title>Profile</title>
 </head>
@@ -112,10 +113,10 @@ include('./../db/db.php');
                         </form>
                     </section>
 
-                    <section class="aside__adduser">
+                    <section class="aside__adduser" id="renovateCapa">
                         <h2>Renueva el bono de un usuario</h2>
-                        <form action="./../utils/renovateUser.php" method="POST" style="width:100%;">
-                            <select name="select" class="form__select">
+                        <form action="./../utils/renovateUser.php" method="POST" style="width:100%;" id="renovateForm">
+                            <select name="select" class="form__select" id="renovateSelect" required>
                                 <option selected disabled>Selecciona un usuario</option>
                                 <?php
                                 $stmt = $db->prepare('select * from users where role = "user"');
@@ -128,9 +129,11 @@ include('./../db/db.php');
                                 ?>
                             </select>
 
-                            <input type="date" name="date" class="form__select">
+                            <input type="date" name="date" class="form__select" id="renovateDate">
                             <input class="admin__button admin__button--renovate" type="submit" value="Renovar el bono">
                         </form>
+
+                        <p id="renovateError" class="error">La fecha de renovación debe ser posterior a la fecha actual</p>
                     </section>
                 </aside>
             </div>

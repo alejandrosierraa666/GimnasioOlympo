@@ -1,0 +1,77 @@
+.profile__container {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.profile__data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.profile__aside {
+    width: 30%;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    background-image: url(./../assets/images/svg.jpg);
+}
+
+.profile__info{
+    background-color: var(--color-primary-dark);
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin: 10px 0;
+}
+
+.profile__image{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
+
+.profile__status{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-radius: 30px;
+    padding: 0 10px;
+    background-color: rgba(172, 231, 54, 0.568);
+}
+
+.status{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(0, 187, 0);
+    border-radius: 50%;
+    animation-name: pulseStatus;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulseStatus {
+    0%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0.2;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}

@@ -354,6 +354,21 @@ body {
     background-color: darkred;
 }
 
+.error {
+    display: none;
+    background-color: rgba(255, 0, 0, 0.753);
+    border: 1px solid red;
+    border-radius: 10px;
+    margin-top: 8px;
+    text-align: center;
+    color: white;
+    padding: 12px;
+}
+
+.profile__user {
+    font-weight: bold;
+}
+
 .red {
     color: red;
 }
