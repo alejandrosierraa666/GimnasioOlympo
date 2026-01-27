@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_start();
             $_SESSION['user'] = $_POST['user'];
             $_SESSION['role'] = $hashed['role'];
+            $_SESSION['id'] = $hashed['id'];
 
             setcookie('lastConnection', date("Y-m-d H:i:s"), time() + 24 * 60 * 365, '/');
             header('Location: ../index.php');
