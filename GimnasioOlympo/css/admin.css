@@ -13,9 +13,6 @@
     margin: 0 auto;
 }
 
-.profile__user {
-    font-weight: bold;
-}
 
 .delete__button {
     background-color: #ff0000;

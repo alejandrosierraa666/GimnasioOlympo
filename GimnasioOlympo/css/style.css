@@ -354,3 +354,7 @@ body {
     color: white;
     padding: 12px;
 }
+
+.profile__user {
+    font-weight: bold;
+}
