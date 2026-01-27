@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `invoices` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `total` decimal(10,0) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
