@@ -42,10 +42,14 @@ if (isset($_COOKIE["cart"])) {
                                 $product = $stmt->fetch();
 
                                 echo "<div class='cartitem'>
-                            <img src='/GimnasioOlympo/GimnasioOlympo/assets/images/products/{$product['image_url']}' class='cartitem__img'>
-                            <p class='cartitem__name'>{$product['name']}</p>
-                            <p class='cartitem__quantity'>{$item['quantity']}</p>
-                          </div>";
+                                        <img src='/GimnasioOlympo/GimnasioOlympo/assets/images/products/{$product['image_url']}' class='cartitem__img'>
+                                        <p class='cartitem__name'>{$product['name']}</p>
+                                        <div class='cartitem__info'>
+                                            <p class='cartitem__quantity'>{$item['quantity']}</p>
+                                            <p class='cartitem__price'>" . ($product['price'] * $item['quantity']) . " €</p>
+                                            <a href='/GimnasioOlympo/GimnasioOlympo/utils/cart.php?remove_id={$product['id']}' class='cartitem__remove'><i class='fa-solid fa-trash red'></i></a>
+                                        </div>
+                                    </div>";
                             }
                             ?>
                         </div>

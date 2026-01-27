@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+// Añadir producto al carrito
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     !isset($_COOKIE['cart']) ? $cart = [] : $cart = json_decode($_COOKIE['cart'], true);
 
@@ -27,5 +29,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
 
 
     header("Location: ../pages/products.php");
+    exit();
+}
+
+// Eliminar producto del carrito
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['remove_id'])) {
+    !isset($_COOKIE['cart']) ? $cart = [] : $cart = json_decode($_COOKIE['cart'], true);
+
+    $removeId = $_GET['remove_id'];
+
+    foreach ($cart as $index => $item) {
+        if ($item["id"] == $removeId) {
+            unset($cart[$index]);
+            break;
+        }
+    }
+
+    $cart = array_values($cart);
+
+    setcookie("cart", json_encode($cart), time() + 60 * 24 * 30, "/");
+
+    file_put_contents("./../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " removed product $removeId from cart\n", FILE_APPEND);
+
+    header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
 }

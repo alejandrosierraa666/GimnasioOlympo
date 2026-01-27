@@ -12,6 +12,7 @@ include('./../db/db.php');
     <link rel="stylesheet" href="./../css/register.css">
     <link rel="stylesheet" href="./../css/profile.css">
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <title>Profile</title>
 </head>
 

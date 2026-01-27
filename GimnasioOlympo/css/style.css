@@ -53,7 +53,6 @@ body {
     right: 0px;
     top: 60px;
     z-index: 10;
-    transform: translateX(-50%);
 }
 
 .cartitems {
@@ -76,10 +75,21 @@ body {
     object-fit: cover;
 }
 
-.cartitem__quantity {
+.cartitem__quantity,
+.cartitem__price {
     font-weight: bold;
     color: var(--color-primary-dark);
     width: 20px;
+}
+
+.cartitem__price {
+    width: 55px;
+}
+
+.cartitem__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .list__item--cart:hover .cart {
@@ -342,4 +352,8 @@ body {
 
 .btn__logout:hover {
     background-color: darkred;
+}
+
+.red {
+    color: red;
 }
