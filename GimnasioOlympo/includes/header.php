@@ -58,7 +58,7 @@ if (isset($_COOKIE["cart"])) {
                             echo "<p class='cart__empty'>El carrito está vacío</p>";
                         } else {
                             echo '<div class="cart__btncontainer">
-                            <button class="cart__btn">Comprar</button>
+                            <a href="/GimnasioOlympo/GimnasioOlympo/utils/cart.php?buy_cart=1" class="cart__btn">Comprar</a>
                         </div>';
                         }
                         ?>
