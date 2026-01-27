@@ -23,7 +23,7 @@
     background-image: url(./../assets/images/svg.jpg);
 }
 
-.profile__info{
+.profile__info {
     background-color: var(--color-primary-dark);
     text-align: center;
     border-radius: 10px;
@@ -31,7 +31,7 @@
     margin: 10px 0;
 }
 
-.profile__image{
+.profile__image {
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -40,7 +40,7 @@
     margin: 20px auto;
 }
 
-.profile__status{
+.profile__status {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -48,11 +48,11 @@
     gap: 1rem;
     align-items: center;
     border-radius: 30px;
-    padding: 0 10px;
+    padding: 0 24px;
     background-color: rgba(172, 231, 54, 0.568);
 }
 
-.status{
+.status {
     width: 15px;
     height: 15px;
     background-color: rgb(0, 187, 0);
@@ -63,15 +63,15 @@
 }
 
 @keyframes pulseStatus {
-    0%{
+    0% {
         opacity: 1;
     }
 
-    50%{
+    50% {
         opacity: 0.2;
     }
 
-    100%{
+    100% {
         opacity: 1;
     }
 }
