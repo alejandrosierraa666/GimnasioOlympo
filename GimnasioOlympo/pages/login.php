@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Hashed devuelve false si ese usuario no existe
         if ($hashed == false) {
             echo "Usuario o contraseña incorrecta!!";
-            exit();
         }
 
 
