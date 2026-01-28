@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['role'] === 'admin') {
         include('./../db/db.php');
         try {
             $hashedPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $stmt = $db->prepare('insert into users (user, name, last_name, password, expiration_date, estado) values (?, ?, ?, ?, ?, ?)');
-            $stmt->execute([$_POST['user'], $_POST['name'], $_POST['last_name'], $hashedPassword, $_POST['expiration_date'], 1]);
+            $stmt = $db->prepare('insert into users (user, name, last_name, password, expiration_date) values (?, ?, ?, ?, ?)');
+            $stmt->execute([$_POST['user'], $_POST['name'], $_POST['last_name'], $hashedPassword, $_POST['expiration_date']]);
             header('Location: ./../pages/panelAdmin.php');
             exit();
         } catch (Exception $e) {
