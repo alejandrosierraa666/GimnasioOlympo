@@ -69,6 +69,11 @@ include('./../db/db.php');
                     } else echo $duration['expiration_date'];
                     ?>
                 </p>
+
+                <article style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+                    <p style="font-weight: bold;">¿Tienes algun problema?</p>
+                    <a href="mailto:contacto@gimnasioolympo.com" class="mail__button" target="_blank">Contactar</a>
+                </article>
             </aside>
 
             <section class="profile__main">

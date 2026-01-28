@@ -21,6 +21,8 @@
     border-radius: 10px;
     position: relative;
     background-image: url(./../assets/images/svg.jpg);
+    position: sticky;
+    top: 0;
 }
 
 .profile__info {
@@ -81,6 +83,7 @@
     display: flex;
     gap: 2rem;
     margin-top: 20px;
+    position: relative;
 }
 
 .invoice__empty{
@@ -127,6 +130,18 @@
     object-fit: cover;
     border-radius: 10px;
     margin-right: 10px;
+}
+
+.mail__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    background-color: #ff9891;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
 }
 
 @keyframes pulseStatus {
