@@ -72,7 +72,7 @@
 .profile__invoices{
     width: 100%;
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -89,6 +89,11 @@
     align-items: center;
     color: red;
     font-size: 1.5rem;
+}
+
+.invoice__item{
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .invoice__header{
@@ -112,7 +117,6 @@
     align-items: center;
     justify-content: space-around;
     margin: 10px 0;
-    padding: 10px;
     border-bottom: 1px solid #ccc;
     list-style-type: none;
 }

@@ -96,7 +96,7 @@ include('./../db/db.php');
                             $invoice_products = $stmt->fetchAll();
 
                             echo "<p>Productos:</p>";
-                            echo "<ul>";
+                            echo "<ul style='padding: 0;'>";
                             foreach ($invoice_products as $product) {
                                 $stmt = $db->prepare("SELECT image_url, price FROM products WHERE id = ?");
                                 $stmt->execute([$product['product_id']]);
