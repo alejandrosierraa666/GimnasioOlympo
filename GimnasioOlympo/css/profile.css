@@ -62,6 +62,69 @@
     animation-iteration-count: infinite;
 }
 
+.profile__main{
+    width: 70%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profile__invoices{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.profile__content{
+    display: flex;
+    gap: 2rem;
+    margin-top: 20px;
+}
+
+.invoice__empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.invoice__header{
+    background-color: var(--color-primary);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.invoice__total{
+    font-weight: bold;
+    text-align: right;
+    margin: 10px;
+}
+
+.invoice__product{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    list-style-type: none;
+}
+
+.invoice__image{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
 @keyframes pulseStatus {
     0% {
         opacity: 1;

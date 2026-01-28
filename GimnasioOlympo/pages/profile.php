@@ -26,7 +26,7 @@ include('./../db/db.php');
             <p>Bienvenido de nuevo, <span class="profile__user"><?php echo $_SESSION['user']; ?></span> | <?php echo $_COOKIE['lastConnection']; ?></p>
         </article>
 
-        <section>
+        <section class="profile__content">
             <aside class="profile__aside">
                 <article class="profile__status">
                     <p>Online</p>
@@ -70,6 +70,50 @@ include('./../db/db.php');
                     ?>
                 </p>
             </aside>
+
+            <section class="profile__main">
+            <h2>Mis Facturas</h2>
+                <section class="profile__invoices">
+                    <?php
+                    $stmt = $db->prepare("SELECT * FROM invoices WHERE user_id = ?");
+                    $stmt->execute([$_SESSION['id']]);
+                    $invoices = $stmt->fetchAll();
+
+                    if (count($invoices) === 0) {
+                        echo "<article class='invoice__empty'>";
+                        echo "<p>No tienes facturas.</p>";
+                        echo "</article>";
+                    } else {
+                        foreach ($invoices as $invoice) {
+                            echo "<article class='invoice__item'>";
+                            echo "<div class='invoice__header'>";
+                            echo "<p>Factura ID: " . $invoice['id'] . "</p>";
+                            echo "<p>Fecha: " . $invoice['date'] . "</p>";
+                            echo "</div>";
+
+                            $stmt = $db->prepare("SELECT * FROM invoices_products WHERE invoice_id = ?");
+                            $stmt->execute([$invoice['id']]);
+                            $invoice_products = $stmt->fetchAll();
+
+                            echo "<p>Productos:</p>";
+                            echo "<ul>";
+                            foreach ($invoice_products as $product) {
+                                $stmt = $db->prepare("SELECT image_url, price FROM products WHERE id = ?");
+                                $stmt->execute([$product['product_id']]);
+                                $product_info = $stmt->fetch();
+                                echo "<li class='invoice__product'>";
+                                echo "<img src='./../assets/images/products/" . $product_info['image_url'] . "' alt='Producto' class='invoice__image'>";
+                                echo "<p>Cantidad: " . $product['quantity'] . "</p>";
+                                echo "<p>Precio unitario: " . $product_info['price'] . " €</p>";
+                                echo "</li>";
+                            }
+                            echo "<p class='invoice__total'>Total: " . $invoice['total'] . " €</p>";
+                            echo "</article>";
+                        }
+                    }
+                    ?>
+                </section>
+            </section>
         </section>
     </main>
 </body>

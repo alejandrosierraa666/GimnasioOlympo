@@ -199,6 +199,8 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     width: fit-content;
+    text-decoration: none;
+    text-align: center;
 }
 
 .product__cart {
@@ -219,7 +221,7 @@ body {
 
 .cart__btncontainer {
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 
 .register {
