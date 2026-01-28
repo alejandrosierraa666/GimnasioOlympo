@@ -1,0 +1,33 @@
+2026-01-28 16:20:43 - User admin added product 27 to cart
+2026-01-28 16:20:59 - User admin added product 35 to cart
+2026-01-28 16:21:19 - User admin added product 26 to cart
+2026-01-28 16:21:21 - User admin added product 31 to cart
+2026-01-28 16:21:27 - User admin purchased cart: [{"id":"27","quantity":3},{"id":"35","quantity":1},{"id":"26","quantity":1},{"id":"31","quantity":1}]
+2026-01-28 16:21:59 - User admin added product 35 to cart
+2026-01-28 16:22:02 - User admin added product 41 to cart
+2026-01-28 16:22:04 - User admin added product 42 to cart
+2026-01-28 16:22:10 - User admin removed product 35 from cart
+2026-01-28 16:22:12 - User admin removed product 41 from cart
+2026-01-28 16:22:55 - User admin purchased cart: [{"id":"42","quantity":1}]
+2026-01-28 16:23:34 - User carlox1 added product 27 to cart
+2026-01-28 16:23:35 - User carlox1 added product 28 to cart
+2026-01-28 16:23:36 - User carlox1 added product 29 to cart
+2026-01-28 16:23:40 - User carlox1 added product 35 to cart
+2026-01-28 16:23:43 - User carlox1 removed product 29 from cart
+2026-01-28 16:23:45 - User carlox1 purchased cart: [{"id":"27","quantity":1},{"id":"28","quantity":1},{"id":"35","quantity":1}]
+2026-01-28 16:25:43 - User carlox1 added product 42 to cart
+2026-01-28 16:25:45 - User carlox1 added product 36 to cart
+2026-01-28 16:25:47 - User carlox1 added product 37 to cart
+2026-01-28 16:25:50 - User carlox1 purchased cart: [{"id":"42","quantity":1},{"id":"36","quantity":1},{"id":"37","quantity":1}]
+2026-01-28 16:25:53 - User carlox1 added product 48 to cart
+2026-01-28 16:25:54 - User carlox1 added product 26 to cart
+2026-01-28 16:25:55 - User carlox1 added product 26 to cart
+2026-01-28 16:25:55 - User carlox1 added product 26 to cart
+2026-01-28 16:25:56 - User carlox1 added product 26 to cart
+2026-01-28 16:25:56 - User carlox1 added product 26 to cart
+2026-01-28 16:25:57 - User carlox1 added product 26 to cart
+2026-01-28 16:25:57 - User carlox1 added product 26 to cart
+2026-01-28 16:25:58 - User carlox1 added product 26 to cart
+2026-01-28 16:26:01 - User carlox1 purchased cart: [{"id":"48","quantity":1},{"id":"26","quantity":8}]
+2026-01-28 16:30:43 - User carlox1 added product 27 to cart
+2026-01-28 16:30:44 - User carlox1 added product 28 to cart

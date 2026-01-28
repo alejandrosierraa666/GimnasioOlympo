@@ -35,13 +35,13 @@ include('./../db/db.php');
 
                 <img src="./../assets/images/default_picture.webp" alt="Foto de perfil" class="profile__image">
 
-                <p>Nombre de Usuario: 
+                <p>Nombre de Usuario:
                     <?php
                     echo $_SESSION['user'];
                     ?>
                 </p>
 
-                <p> Nombre: 
+                <p> Nombre:
                     <?php
                     $stmt = $db->prepare("SELECT name FROM users WHERE user = ?");
                     $stmt->execute([$_SESSION['user']]);
@@ -50,7 +50,7 @@ include('./../db/db.php');
                     ?>
                 </p>
 
-                <p> Apellidos: 
+                <p> Apellidos:
                     <?php
                     $stmt = $db->prepare("SELECT last_name FROM users WHERE user = ?");
                     $stmt->execute([$_SESSION['user']]);
@@ -77,7 +77,7 @@ include('./../db/db.php');
             </aside>
 
             <section class="profile__main">
-            <h2>Mis Facturas</h2>
+                <h2>Mis Facturas</h2>
                 <section class="profile__invoices">
                     <?php
                     $stmt = $db->prepare("SELECT * FROM invoices WHERE user_id = ?");
@@ -100,7 +100,7 @@ include('./../db/db.php');
                             $stmt->execute([$invoice['id']]);
                             $invoice_products = $stmt->fetchAll();
 
-                            echo "<p>Productos:</p>";
+                            echo "<p class='invoice__title'>Productos:</p>";
                             echo "<ul style='padding: 0;'>";
                             foreach ($invoice_products as $product) {
                                 $stmt = $db->prepare("SELECT image_url, price FROM products WHERE id = ?");

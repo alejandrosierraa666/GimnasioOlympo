@@ -64,14 +64,14 @@
     animation-iteration-count: infinite;
 }
 
-.profile__main{
+.profile__main {
     width: 70%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
 }
 
-.profile__invoices{
+.profile__invoices {
     width: 100%;
     display: grid;
     gap: 2rem;
@@ -79,14 +79,14 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.profile__content{
+.profile__content {
     display: flex;
     gap: 2rem;
     margin-top: 20px;
     position: relative;
 }
 
-.invoice__empty{
+.invoice__empty {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,12 +94,12 @@
     font-size: 1.5rem;
 }
 
-.invoice__item{
+.invoice__item {
     border-radius: 10px;
     border: 1px solid #ccc;
 }
 
-.invoice__header{
+.invoice__header {
     background-color: var(--color-primary);
     padding: 10px;
     display: flex;
@@ -109,13 +109,17 @@
     border-radius: 10px;
 }
 
-.invoice__total{
+.invoice__title {
+    padding: 0 8px;
+}
+
+.invoice__total {
     font-weight: bold;
     text-align: right;
     margin: 10px;
 }
 
-.invoice__product{
+.invoice__product {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -124,7 +128,7 @@
     list-style-type: none;
 }
 
-.invoice__image{
+.invoice__image {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -132,7 +136,7 @@
     margin-right: 10px;
 }
 
-.mail__button{
+.mail__button {
     display: flex;
     justify-content: center;
     align-items: center;
