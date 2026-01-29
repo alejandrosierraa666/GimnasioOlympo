@@ -22,20 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Hashed devuelve false si ese usuario no existe
         if ($hashed == false) {
             $error = "Usuario o contraseña incorrectos";
-        }
-
-
-        if (password_verify($_POST['password'], $hashed['password'])) {
+            file_put_contents('./../../logs/login.log', date("Y-m-d H:i:s") . " - User not found: " . $_POST['user'] . "\n", FILE_APPEND);
+        } else if (password_verify($_POST['password'], $hashed['password'])) {
             session_start();
             $_SESSION['user'] = $_POST['user'];
             $_SESSION['role'] = $hashed['role'];
             $_SESSION['id'] = $hashed['id'];
+
+            file_put_contents('./../../logs/login.log', date("Y-m-d H:i:s") . " - Successful login for user: " . $_POST['user'] . "\n", FILE_APPEND);
 
             setcookie('lastConnection', date("Y-m-d H:i:s"), time() + 24 * 60 * 365, '/');
             header('Location: ../index.php');
             exit();
         } else {
             $error = "Usuario o contraseña incorrectos";
+            file_put_contents('./../../logs/login.log', date("Y-m-d H:i:s") . " - Incorrect password for user: " . $_POST['user'] . "\n", FILE_APPEND);
         }
     }
 }

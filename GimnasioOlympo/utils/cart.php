@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
 
     setcookie("cart", json_encode($cart), time() + 60 * 24 * 30, "/");
 
-    file_put_contents("./../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " added product $productId to cart\n", FILE_APPEND);
+    file_put_contents("./../../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " added product $productId to cart\n", FILE_APPEND);
 
 
     header("Location: ../pages/products.php");
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['remove_id'])) {
 
     setcookie("cart", json_encode($cart), time() + 60 * 24 * 30, "/");
 
-    file_put_contents("./../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " removed product $removeId from cart\n", FILE_APPEND);
+    file_put_contents("./../../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " removed product $removeId from cart\n", FILE_APPEND);
 
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['buy_cart'])) {
         }
     }
 
-    file_put_contents("./../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " purchased cart: " . json_encode($cart) . "\n", FILE_APPEND);
+    file_put_contents("./../../logs/cart.log", date('Y-m-d H:i:s') . " - User " . $_SESSION['user'] . " purchased cart: " . json_encode($cart) . "\n", FILE_APPEND);
     setcookie("cart", "", time() - 3600, "/");
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();

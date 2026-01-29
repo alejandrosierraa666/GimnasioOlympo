@@ -1,0 +1,6 @@
+2026-01-29 18:07:04 - User admin added product 26 to cart
+2026-01-29 18:07:05 - User admin added product 30 to cart
+2026-01-29 18:07:07 - User admin added product 31 to cart
+2026-01-29 18:07:12 - User admin removed product 27 from cart
+2026-01-29 18:07:14 - User admin removed product 28 from cart
+2026-01-29 18:07:18 - User admin purchased cart: [{"id":"26","quantity":1},{"id":"30","quantity":1},{"id":"31","quantity":1}]

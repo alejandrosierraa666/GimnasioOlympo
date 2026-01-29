@@ -1,5 +1,7 @@
 <?php
 session_start();
+file_put_contents('./../../logs/login.log', date("Y-m-d H:i:s") . " - User " . $_SESSION['user'] . " logged out\n", FILE_APPEND);
+
 session_unset();
 session_destroy();
 
