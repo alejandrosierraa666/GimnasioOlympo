@@ -1,4 +1,5 @@
 <?php
+$error = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['user']) && isset($_POST['password']) && !empty($_POST['user']) && !empty($_POST['password'])) {
 
@@ -6,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
             include('./../db/db.php');
         } catch (Exception $e) {
-            echo "<p>Error: El servicio de la BD no está disponible actualmente!!</p>";
+            echo "La base de datos no está disponible";
             exit();
         }
 
@@ -15,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute([$_POST['user']]);
             $hashed = $stmt->fetch();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            $error = "Error al conectar con la base de datos";
         }
 
         //Hashed devuelve false si ese usuario no existe
         if ($hashed == false) {
-            echo "Usuario o contraseña incorrecta!!";
+            $error = "Usuario o contraseña incorrectos";
         }
 
 
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../index.php');
             exit();
         } else {
-            echo "Usuario o contraseña incorrecta!!";
+            $error = "Usuario o contraseña incorrectos";
         }
     }
 }
@@ -74,6 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <input class="form__submit" type="submit" value="Iniciar Sesión">
+                    <?php
+                    if (!empty($error)) {
+                        echo "<p class='form__error'>$error</p>";
+                    }
+                    ?>
                 </form>
                 <a class="login__link" href="./register.php">¿Aún no estás registrado? Regístrate ahora!</a>
             </section>
